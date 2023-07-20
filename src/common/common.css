@@ -1,0 +1,30 @@
+.component-body-container {
+    padding: 20px;
+}
+
+.custom-btn {
+    padding: 10px;
+    border: none;
+    margin-right: 10px;
+    text-transform: uppercase;
+    width: 80px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    outline: none;
+    background-color: rgb(223, 193, 251);
+}
+
+.add-btn {
+    background-color: rgb(78, 245, 133);
+    color: rgb(0, 0, 0);
+}
+
+.delete-btn {
+    background-color: rgb(245, 78, 78);
+    color: rgb(0, 0, 0);
+}
+
+.back-btn {
+    background-color: rgb(86, 185, 225);
+    color: rgb(0, 0, 0);
+}

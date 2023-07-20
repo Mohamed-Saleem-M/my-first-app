@@ -1,7 +1,7 @@
 import React, { Component, createElement } from "react";
 import Header from "./Header";
-import "./App.css";
-import Timer from "./Timer";
+import "./ShowUser.css";
+import { Link } from "react-router-dom";
 
 /*
 let users = [
@@ -29,7 +29,7 @@ let users = [
 */
 
 //class component
-class App extends Component {
+class ShowUser extends Component {
   constructor() {
     super();
     this.state = {
@@ -40,9 +40,9 @@ class App extends Component {
 
   componentDidMount() {
     let newUser = {
-      id: "1",
+      id: 1,
       name: "Prakash",
-      phone: "7896786541"
+      phone: "7896786541",
     };
     let userList = this.state.userListToShow;
     userList.push(newUser);
@@ -64,17 +64,23 @@ class App extends Component {
     console.log("This Call is from Render Method")
     return (
       <div>
-        <Header heading="Welcome to GuviB46 - MERN Stack"></Header>
+        <Header
+          heading="Welcome to GuviB46 - MERN Stack"
+          name={this.props.name}>
+        </Header>
         {/* <Timer course="MERN"></Timer> */}
         <div className="component-body-container">
-          <button className="custom-btn add-btn">Add</button>
+          <Link to='/add'>
+            <button className="custom-btn add-btn">Add</button>
+          </Link>
+
           <div className="grid-container heading-container">
             <span className="grid-item name-heading">Name</span>
             <span className="grid-item phone-heading">Phone Number</span>
           </div>
 
           {
-            this.state.userListToShow.map((user) => {
+            this.props.userList.map(user => {
               return (
                 <div key={user.id} className="grid-container">
                   <span className="grid-item">{user.name}</span>
@@ -87,40 +93,10 @@ class App extends Component {
             })
           }
 
-          {/* <div className="grid-container">
-            <span className="grid-item"></span><br />
-            <span className="grid-item"></span>
-          </div>
-
-          <div className="grid-container">
-            <span className="grid-item"></span><br />
-            <span className="grid-item"></span>
-          </div> */}
         </div>
       </div>
     );
   }
 }
 
-//functional component
-/*
-function App() {
-          let moduleName = "Guvi B46 First React App"
-        return (
-        <div>
-          <div className="header">Guvi B46 - Phone Directory</div>
-          <button>Add</button>
-          <div>
-            <span>Name</span><br />
-            <span>Phone Number</span>
-          </div>
-        </div>
-    // *****************************************************
-    // React.createElement("div", {id: "module", className: "header" },
-        //   React.createElement("p", null, "ReactJS"))
-        //   *******************************************
-        );
-}
-        */
-
-export default App;
+export default ShowUser;
